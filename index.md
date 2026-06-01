@@ -34,7 +34,7 @@ The experiment that started it all. [How I wiped ZimaOS, installed Windows Serve
 
 ### Homelab Journal
 
-Operating systems, experiments, and what I'm running now. [Why ZimaOS is good on small devices but wrong for the Cube →](posts/homelab-journal/zimaos-review.html) [Why Proxmox is the only OS that makes sense — NFS-mounted Synology, a three-host fleet, and why I should have done this from day one →](posts/homelab-journal/proxmox-primary-os.html) [The most exciting topic in tech: backups — PBS, the circular backup problem, and Pulse →](posts/homelab-journal/backups.html) [Watching the fleet: what does a one-man homelab actually need? — Pulse, Proxmox Data Center Manager, Uptime Kuma, and the AI agent idea →](posts/homelab-journal/monitoring-the-fleet.html) [Why Hermes Agent belongs on your ZimaCube — running a self-hosted AI agent on the ZimaCube, what it does, and why the hardware was built for it →](posts/homelab-journal/hermes-agent-on-zimacube.html)
+Operating systems, experiments, and what I'm running now. [Why ZimaOS is good on small devices but wrong for the Cube →](posts/homelab-journal/zimaos-review.html) [Why Proxmox is the only OS that makes sense — NFS-mounted Synology, a three-host fleet, and why I should have done this from day one →](posts/homelab-journal/proxmox-primary-os.html) [The most exciting topic in tech: backups — PBS, the circular backup problem, and Pulse →](posts/homelab-journal/backups.html) [Watching the fleet: what does a one-man homelab actually need? — Pulse, Proxmox Data Center Manager, Uptime Kuma, and the AI agent idea →](posts/homelab-journal/monitoring-the-fleet.html) [Why Hermes Agent belongs on your ZimaCube — running a self-hosted AI agent on the ZimaCube, what it does, and why the hardware was built for it →](posts/homelab-journal/hermes-agent-on-zimacube.html) [OPNsense might be the best use case for the ZimaCube yet — dual 2.5 gigabit, Proxmox underneath, and a firewall VM that finally feels justified →](posts/homelab-journal/opnsense-on-zimacube.html)
 
 ### Meta
 
@@ -54,4 +54,4 @@ Welcome to the project.
 
 ---
 
-*Last updated: May 2026*
+*Last updated: June 2026*

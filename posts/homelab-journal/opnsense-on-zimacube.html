@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Proxmox Is the Only OS That Makes Sense for the ZimaCube — ZimaCube Experience Blog</title>
+    <title>OPNsense Might Be the Best Use Case for the ZimaCube Yet — ZimaCube Experience Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -323,25 +323,6 @@
             color: inherit;
         }
 
-        /* Images */
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
-            display: block;
-            margin: 24px 0;
-        }
-
-        figcaption, .image-caption {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-top: -16px;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
         /* Footer date */
         .post-footer {
             text-align: center;
@@ -359,18 +340,18 @@
         /* Backlinks */
         .backlinks {
             margin-top: 48px;
-            padding-top: 32px;
+            padding-top: 24px;
             border-top: 1px solid var(--border-light);
         }
 
         .backlinks h3 {
-            font-size: 1.125rem;
-            margin-top: 0;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 16px;
         }
 
         .backlinks ul {
-            list-style: none;
             padding-left: 0;
         }
 
@@ -378,18 +359,8 @@
             display: none;
         }
 
-        .backlinks li {
+        .backlinks ul li {
             margin-bottom: 8px;
-        }
-
-        .backlinks a {
-            font-size: 0.9375rem;
-        }
-
-        .backlinks-empty {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-            font-style: italic;
         }
 
         /* Responsive */
@@ -618,24 +589,32 @@
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="toc-title">Contents</div>
-        <ul class="toc-list" id="mobileToc">
-            <li><a href="#what-i-actually-built">What I Actually Built</a></li>
-            <li><a href="#the-fleet">The Fleet</a></li>
-            <li><a href="#what-i-am-running-now">What I Am Running Now</a></li>
-            <li><a href="#what-comes-next">What Comes Next</a></li>
-            <li><a href="#my-honest-take">My Honest Take</a></li>
+                <ul class="toc-list">
+            <li><a href="#the-port-layout-makes-this-make-sense">The port layout makes this make sense.</a></li>
+            <li><a href="#proxmox-is-what-makes-it-interesting">Proxmox is what makes it interesting.</a></li>
+            <li><a href="#the-isp-router-was-the-weak-link">The ISP router was the weak link.</a></li>
+            <li><a href="#a-router-vm-is-not-automatically-a-stupid-idea">A router VM is not automatically a stupid idea.</a></li>
+            <li><a href="#the-hardware-is-barely-breaking-a-sweat">The hardware is barely breaking a sweat.</a></li>
+            <li><a href="#opnsense-gives-you-room-to-grow">OPNsense gives you room to grow.</a></li>
+            <li><a href="#the-all-in-one-box-argument-is-stronger-than-people-admit">The all in one box argument is stronger than people admit.</a></li>
+            <li><a href="#it-is-not-perfect">It is not perfect.</a></li>
+            <li><a href="#my-honest-take">My honest take</a></li>
         </ul>
     </div>
 
     <!-- Desktop Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="toc-title">Contents</div>
-        <ul class="toc-list" id="desktopToc">
-            <li><a href="#what-i-actually-built">What I Actually Built</a></li>
-            <li><a href="#the-fleet">The Fleet</a></li>
-            <li><a href="#what-i-am-running-now">What I Am Running Now</a></li>
-            <li><a href="#what-comes-next">What Comes Next</a></li>
-            <li><a href="#my-honest-take">My Honest Take</a></li>
+                <ul class="toc-list">
+            <li><a href="#the-port-layout-makes-this-make-sense">The port layout makes this make sense.</a></li>
+            <li><a href="#proxmox-is-what-makes-it-interesting">Proxmox is what makes it interesting.</a></li>
+            <li><a href="#the-isp-router-was-the-weak-link">The ISP router was the weak link.</a></li>
+            <li><a href="#a-router-vm-is-not-automatically-a-stupid-idea">A router VM is not automatically a stupid idea.</a></li>
+            <li><a href="#the-hardware-is-barely-breaking-a-sweat">The hardware is barely breaking a sweat.</a></li>
+            <li><a href="#opnsense-gives-you-room-to-grow">OPNsense gives you room to grow.</a></li>
+            <li><a href="#the-all-in-one-box-argument-is-stronger-than-people-admit">The all in one box argument is stronger than people admit.</a></li>
+            <li><a href="#it-is-not-perfect">It is not perfect.</a></li>
+            <li><a href="#my-honest-take">My honest take</a></li>
         </ul>
     </aside>
 
@@ -646,47 +625,158 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-inner">
-            <h1>Why Proxmox Is the Only OS That Makes Sense for the ZimaCube</h1>
-            <p>I have wiped this machine three times now. It came with ZimaOS. Then I installed Proxmox. Then Windows Server 2025 bare metal. Then back to Proxmox again — and this time it is staying.</p>
-            <p>If you are wondering whether the ZimaCube is better off on its stock OS or something else, I can save you the experimentation. Proxmox is the answer. Not because it is flashy. Because it gets out of the way and lets the hardware do what it was built to do.</p>
-            <h2 id="what-i-actually-built">What I Actually Built</h2>
-            <p>The current setup is simple to describe and took a weekend to get right. Proxmox is the hypervisor on the ZimaCube. Inside Proxmox I run a virtualised Synology DSM instance that handles storage across the six drive bays. I should probably not tell you this — technically it sits in a grey area, and it is not something you are supposed to be doing. But it works, and it works well.</p>
-            <p>Then I mount that Synology storage back into Proxmox over NFS, which means ISOs and LXC container templates live on the NAS but show up natively inside Proxmox as if they were local volumes.</p>
-            <p>I did not know if that loop would work. Proxmox hosting a VM that provides storage back to Proxmox itself feels like a thing that should break. It does not. I set up the NFS share in Synology's interface, added the storage target in Proxmox's Datacenter > Storage panel, pointed it at the NAS IP, and it just connected. I had to look up the exact mount options — Proxmox is picky about how it talks to network storage — but once it was mounted, every ISO I drop onto the NAS appears instantly in Proxmox's template list. No more copying four-gigabyte files across the network every time I want to spin up a VM.</p>
-            <p>That alone would have been enough to make me happy. But I did not stop at one machine.</p>
-            <h2 id="the-fleet">The Fleet</h2>
-            <p>I now have three separate Proxmox hosts. The ZimaCube is the main one — the same machine I wrote about in <a href="../hardware/overview.html">the hardware overview</a> and later <a href="../hardware/disassembly.html">took apart to see what was inside</a>. An old x86 mini PC is the second. The ZimaBlade — previously running ZimaOS, now fitted with a PCIe adapter and an NVMe card — is the third. All three run Proxmox. All three point at the same Synology NAS for ISOs and container templates.</p>
-            <p>This is the part that genuinely changed how I work. Before, if I wanted to create a VM on any of those machines, I needed the ISO sitting locally on that specific host. That meant either copying the file to three locations or keeping a mental map of which ISO lived where. Now there is one copy on the NAS, and every host sees it. If I download a new server ISO or a fresh LXC template, I drop it once and it is available everywhere.</p>
-            <p>Container backups go the same direction. Every Proxmox host backs up its LXC containers to the Synology NAS. One destination. One place to check. One place to restore from. It is not a complicated setup, but it is the kind of simple that makes you wonder why you ever did it the hard way.</p>
-            <h2 id="what-i-am-running-now">What I Am Running Now</h2>
-            <p>The DNS and DHCP for my network are handled by a Technitium DNS instance running on the x86 mini PC, not the ZimaCube. I will eventually move a secondary DNS server onto the Cube itself, but for now the mini PC handles it. I picked Technitium because the interface is clean, the blocking lists are built in — no hunting for third-party blocklists — and setting up a forwarding resolver took about five minutes. It is the kind of tool that just works without needing a weekend of reading documentation.</p>
-            <p>The ZimaCube itself is handling the heavier stuff. Proxmox is the control plane. Synology DSM manages the disks. LXC containers run the services I want always-on. I am not touching Docker directly anymore if I can avoid it — an LXC container is lighter, faster to back up, and restores in seconds if something goes wrong.</p>
-            <p>This is a long way from where I started. In <a href="../first-impressions/introduction.html">my first post</a> I was still figuring out whether this blog was even worth keeping. Then I ran ZimaOS for a while and found myself <a href="zimaos-review.html">hitting its ceiling</a> — no VMs, no LXC, just Docker and file shares on hardware that was built for more. Then I went all-in on <a href="../windows-server/bare-metal-setup.html">Windows Server 2025 bare metal</a>, spent a Sunday hunting drivers, and got it working. It was good. It genuinely ran well. But every time I thought about what I wanted to do next — GPU passthrough, a dozen lightweight containers, a Synology VM — I kept bumping into walls that Proxmox does not have.</p>
-            <h2 id="what-comes-next">What Comes Next</h2>
-            <p>I have a list. Proxmox Backup Server is next — proper deduplicated backups instead of the basic dump-to-NAS I am doing now. Then I want an LXC container dedicated to coding agents, isolated from the rest of the network, with SSH access to the other hosts so it can push configuration changes without me logging in manually. The idea is to have one place where the agents live, one set of credentials they use, and one firewall rule that controls what they can reach. I am not sure yet whether that lives on the ZimaCube or the mini PC, but the container model makes it easy to move later.</p>
-            <p>GPU passthrough is still on the roadmap too. I want to add a low-profile card to the ZimaCube's PCIe slot and pass it through to a VM for OBS recording. That was one of the reasons I moved away from Windows Server in the first place — Proxmox handles passthrough on consumer hardware with far less fighting.</p>
-            <h2 id="my-honest-take">My Honest Take</h2>
-            <p>I defended Windows Server for a long time. I still think it is a good operating system, and if you are new to homelabbing and you already know Windows, the 180-day trial is a genuine gift. It teaches you Active Directory, DNS, and DHCP without making you learn a new OS first. But there is a ceiling. When you want GPU passthrough, nested virtualisation, and dozens of lightweight containers, Windows Server starts to feel like the wrong tool. It can do those things, but it does not want to.</p>
-            <p>Proxmox wants to. It was built for exactly this — a small fleet of x86 boxes, a shared storage target, and a mix of VMs and containers that you can back up, migrate, and restore without drama. The ZimaCube has six cores, forty gigabytes of RAM, six drive bays, and dual 2.5GbE networking. That is not NAS hardware. That is hypervisor hardware. And Proxmox is the only OS I have found that treats it that way out of the box.</p>
-            <p>I should have done this from day one. But then I would not have known why it was the right choice.</p>
-            
-            <hr>
-            
-            <div class="post-footer">
-                <em>May 2026</em>
-            </div>
+            <h1>OPNsense Might Be the Best Use Case for the ZimaCube Yet</h1>
 
-            <div class="backlinks">
-                <h3>Related Posts</h3>
-                <ul>
-                    <li><a href="zimaos-review.html">ZimaOS: Good at What It Does, Just Not for This</a> — why the stock OS was not enough</li>
-                    <li><a href="../windows-server/bare-metal-setup.html">Bare-Metal Windows Server 2025 on a NAS</a> — the experiment that preceded this</li>
-                    <li><a href="../hardware/overview.html">Hardware Overview</a> — the specs this setup is running on</li>
-                    <li><a href="../hardware/disassembly.html">Inside the ZimaCube</a> — what I found when I opened the case</li>
-                    <li><a href="../first-impressions/introduction.html">Introduction</a> — why this blog exists</li>
-                </ul>
+            <p>I did not buy my ZimaCube 2. I got it through the <a href="../meta/disclaimer.html">Pioneer programme</a>, and that still matters because it would be very easy to get carried away talking about hardware like this and pretend price is irrelevant.</p>
+
+            <p>It is not irrelevant.</p>
+
+            <p>That said, this might be the cleanest use case I have found for the machine so far.</p>
+
+            <p>If you have read <a href="../homelab-journal/proxmox-primary-os.html">why I moved the box to Proxmox full time</a>, you already know where my head is at with this hardware. I do not want the ZimaCube acting like an expensive little NAS with good manners. I want it doing real work. Running OPNsense on it feels like exactly that.</p>
+
+            <h2 id="the-port-layout-makes-this-make-sense">The port layout makes this make sense.</h2>
+
+            <p>A lot of homelab ideas sound clever right up until the physical hardware gets involved.</p>
+
+            <p>This one does not.</p>
+
+            <p>The ZimaCube 2 Standard has dual 2.5 gigabit Ethernet on the back, and that is the whole reason this works so well. Most people still are not getting multi-gig internet into the house anyway, which means those two ports are already enough to make it a very believable firewall and router box without resorting to USB dongles, adapters, or whatever other crimes people commit to get a second network connection.</p>
+
+            <p>That is the bit I love.</p>
+
+            <p>One port for WAN. One port for LAN. Done.</p>
+
+            <p>If you want the broader hardware picture, read the <a href="../hardware/overview.html">hardware overview</a>. The short version is simple: the ZimaCube has more than enough I/O and more than enough headroom for this job.</p>
+
+            <h2 id="proxmox-is-what-makes-it-interesting">Proxmox is what makes it interesting.</h2>
+
+            <p>Installing OPNsense itself was not the interesting part.</p>
+
+            <p>That bit is easy.</p>
+
+            <p>You download the DVD image, throw the ISO into Proxmox, create a VM, pass both network adapters through at the bridge level, boot it up, and go through the install. The only part you really need to pay attention to is making sure your WAN and LAN adapters are assigned properly. Get that wrong and you are just manufacturing your own misery.</p>
+
+            <p>Everything else is normal.</p>
+
+            <p>What makes the setup good is that it is living inside Proxmox on the same machine I am already using properly elsewhere. That matters because it means I can still take advantage of the internal drives, the rest of the platform, and the same virtualisation workflow I am already sold on from <a href="../homelab-journal/proxmox-primary-os.html">the Proxmox setup</a>.</p>
+
+            <p>That is where this stops being "router in a VM for the sake of it" and starts becoming a genuinely sensible homelab decision.</p>
+
+            <h2 id="the-isp-router-was-the-weak-link">The ISP router was the weak link.</h2>
+
+            <p>This is where the whole thing gets annoying.</p>
+
+            <p>My internet provider gave me a Nokia Beacon 3.1, and it is one of those ISP routers that reminds you you do not really own your own network. You are allowed to use it. You are not really allowed to shape it.</p>
+
+            <p>I had to put the thing into bridge mode just to get out of its way.</p>
+
+            <p>That is frustrating, because the whole point of running your own network gear is control. DHCP, DNS, routing, plugins, remote access, firewall rules, the lot. If the ISP box is still acting like the adult in the room, it never quite feels like your setup.</p>
+
+            <p>OPNsense fixes that.</p>
+
+            <p>Not perfectly, because the bridge mode nonsense still exists, but enough that the network finally feels like mine again.</p>
+
+            <h2 id="a-router-vm-is-not-automatically-a-stupid-idea">A router VM is not automatically a stupid idea.</h2>
+
+            <p>Some people hear "router in a VM" and stop thinking.</p>
+
+            <p>I get it.</p>
+
+            <p>It sounds like the sort of sentence that should end in a forum thread full of regret. If this was the only machine in the house, if there were no backups, no rollback path, and no fallback hardware, I would agree with them.</p>
+
+            <p>That is not what this is.</p>
+
+            <p>I am already <a href="../homelab-journal/backups.html">backing the environment up properly</a>. The router VM is cloned. I can template it. I can roll it back if I break something. The old physical router is still sitting there configured in the house. If everything goes wrong, I unplug one cable, plug another back in, and the network is back.</p>
+
+            <p>That is not reckless.</p>
+
+            <p>That is a recovery plan.</p>
+
+            <p>Half the internet is held together by worse decisions than this.</p>
+
+            <h2 id="the-hardware-is-barely-breaking-a-sweat">The hardware is barely breaking a sweat.</h2>
+
+            <p>This is the part that really makes me smile.</p>
+
+            <p>I have given the OPNsense VM one core and 2GB of RAM. That is already more than enough RAM for a router VM, and the ZimaCube itself has plenty of CPU thanks to the i3-1215U sitting underneath it all. Most consumer routers are doing this sort of work on hardware that feels like it was pulled from a drawer in 2014.</p>
+
+            <p>This is not that.</p>
+
+            <p>This is a proper x86 machine with DDR5 memory and enough headroom to run infrastructure without sounding like it is begging for mercy. Even the Standard model is overqualified for the job. If I had the Pro with 10 gig on top, it would be even more ridiculous in the best possible way.</p>
+
+            <p>Ridiculous is fine when it works.</p>
+
+            <h2 id="opnsense-gives-you-room-to-grow">OPNsense gives you room to grow.</h2>
+
+            <p>This is the real reason I like it.</p>
+
+            <p>A lot of home network gear wants you to stay inside the lines. OPNsense feels like a blank canvas. You install it, set your interfaces, get the core network online, and then you can shape the rest around how you actually want your lab to work.</p>
+
+            <p>That flexibility is the whole appeal.</p>
+
+            <p>I can run DHCP and DNS the way I want. I can add the Tailscale plugin and get secure remote access into the network without doing anything stupid. I can start layering in proper firewall rules, monitoring, and extra services without having to beg a plastic ISP box for permission.</p>
+
+            <p>I am also planning to spend more time with curated blocklists and feeds, because that is another area where OPNsense starts to justify itself very quickly. Once you realise you can harden the edge of the network properly, going back to a locked-down ISP interface starts to feel a bit pathetic.</p>
+
+            <h2 id="the-all-in-one-box-argument-is-stronger-than-people-admit">The all in one box argument is stronger than people admit.</h2>
+
+            <p>A lot of the so-called proper way to build a homelab really just means buying more little boxes.</p>
+
+            <p>More power bricks.</p>
+
+            <p>More mess.</p>
+
+            <p>More things to fail.</p>
+
+            <p>There is obviously a point where separating roles makes sense. I am not pretending every service in the world should be collapsed into one chassis. That would be silly. Yet the ZimaCube has the horsepower, the storage options, and the port selection to make this specific consolidation feel smart rather than cheap.</p>
+
+            <p>That is the difference.</p>
+
+            <p>This is not me trying to force a tiny machine to do too much. This is me looking at a machine that has plenty of CPU, more than enough RAM for a router VM, internal storage flexibility, and dual 2.5 gigabit, then giving it a job that actually suits it.</p>
+
+            <p>That feels correct.</p>
+
+            <h2 id="it-is-not-perfect">It is not perfect.</h2>
+
+            <p>The setup itself has been solid.</p>
+
+            <p>The annoyances are mostly external.</p>
+
+            <p>The ISP bridge mode nonsense is still annoying. The fans are a little louder than I would like, and after a few hours in the room you do notice them. That is not a deal-breaker, but it is real. I will probably try a low-noise adapter from Noctua and calm it down a bit.</p>
+
+            <p>I am also already thinking about what comes next.</p>
+
+            <p>A Pro upgrade with 10 gig would be very tempting. More networking options would be even better. I have a couple of ideas in mind there that I am not going to spoil just yet.</p>
+
+            <h2 id="my-honest-take">My honest take</h2>
+
+            <p>This is one of the first setups that makes the ZimaCube feel fully justified.</p>
+
+            <p>Running OPNsense on it does not feel like a gimmick. It feels like the sort of job this hardware was built for. Dual 2.5 gigabit on the back, Proxmox underneath, internal drives available, rollback options in place, backups already handled, and a fallback router still on standby if I really need to bail out.</p>
+
+            <p>That is not overkill.</p>
+
+            <p>That is a clean homelab design with a safety net.</p>
+
+            <p>If you buy a machine like this and only let it sit there doing cautious little NAS duty, I think you are leaving a lot on the table. I said in my <a href="../homelab-journal/zimaos-review.html">ZimaOS write-up</a> that the stock software started to feel like a ceiling. This is the other side of that argument. Once you put the ZimaCube on Proxmox and start giving it proper jobs, the hardware finally starts making sense.</p>
+
+            <p>This is one of those jobs.</p>
+
+            <hr>
+
+            <p><strong>Related Posts:</strong></p>
+            <ul>
+                <li><a href="../homelab-journal/proxmox-primary-os.html">Why Proxmox Is the Only OS That Makes Sense for the ZimaCube</a></li>
+                <li><a href="../homelab-journal/backups.html">The Most Exciting Topic in Tech: Backups</a></li>
+                <li><a href="../homelab-journal/zimaos-review.html">ZimaOS: Good at What It Does, Just Not for This</a></li>
+                <li><a href="../hardware/overview.html">Hardware Overview</a></li>
+                <li><a href="../hardware/would-i-buy-it.html">Would I Buy the ZimaCube 2 With My Own Money?</a></li>
+            </ul>
+
+            <div class="post-footer">
+                <em>June 2026</em>
             </div>
-        </div>
     </main>
 
     <script>

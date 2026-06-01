@@ -35,6 +35,7 @@ A running journal of my time with the [ZimaCube](https://www.zimaboard.com/) —
 - [Backups](posts/homelab-journal/backups.md) — PBS on the ZimaCube, the circular backup problem, Pulse monitoring, and why I don't have to think about it
 - [Watching the Fleet](posts/homelab-journal/monitoring-the-fleet.md) — What does a one-man homelab actually need? Pulse, Proxmox Data Center Manager, and the AI agent idea
 - [Why Hermes Agent Belongs on Your ZimaCube](posts/homelab-journal/hermes-agent-on-zimacube.md) — Running a self-hosted AI agent on the ZimaCube, what it does, and why the hardware was built for it
+- [OPNsense Might Be the Best Use Case for the ZimaCube Yet](posts/homelab-journal/opnsense-on-zimacube.md) — Dual 2.5 gigabit, Proxmox underneath, and why a router VM finally feels justified
 
 ## The Standout Experiment So Far
 
@@ -46,4 +47,4 @@ Treating this compact little NAS box as a bare-metal Windows Server 2025 host. I
 
 Photos and screenshots live in [`assets/images`](assets/images/).
 
-*Last updated: May 2026*
+*Last updated: June 2026*
