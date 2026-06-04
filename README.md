@@ -24,6 +24,7 @@ A running journal of my time with the [ZimaCube](https://www.zimaboard.com/) —
 - [Overview](posts/hardware/overview.md) — Build quality, ports, drive caddies, quirks
 - [Taking It Apart](posts/hardware/disassembly.md) — What's inside, the fan saga, and one mystery standoff
 - [Six Weeks Later: What Changed and What Didn't](posts/hardware/six-weeks-later.md)
+- [The ZimaCube Does Not Need More Cores. It Needs More RAM.](posts/hardware/more-ram-not-more-cores.md) — why memory, not CPU, became the real planning number once the box started doing real work
 - [Would I Buy It?](posts/hardware/would-i-buy-it.md) — The honest math on what this machine actually costs
 
 ### The Windows Server Project

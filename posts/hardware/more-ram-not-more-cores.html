@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZimaOS: Good at What It Does, Just Not for This — ZimaCube Experience Blog</title>
+    <title>The ZimaCube Does Not Need More Cores. It Needs More RAM. — ZimaCube Experience Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -620,11 +620,12 @@
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="toc-title">Contents</div>
         <ul class="toc-list" id="mobileToc">
-            <li><a href="#what-zimaos-gets-right">What ZimaOS Gets Right</a></li>
-            <li><a href="#the-problem-with-running-it-here">The Problem with Running It Here</a></li>
-            <li><a href="#what-i-actually-want-to-do-with-this-box">What I Actually Want to Do With This Box</a></li>
-            <li><a href="#where-the-line-is">Where the Line Is</a></li>
-            <li><a href="#the-bottom-line">The Bottom Line</a></li>
+            <li><a href="#the-cpu-story-is-almost-boring">The CPU story is almost boring.</a></li>
+            <li><a href="#the-ram-story-is-a-different-beast">The RAM story is a different beast.</a></li>
+            <li><a href="#this-is-why-the-stock-configuration-annoys-me">This is why the stock configuration annoys me.</a></li>
+            <li><a href="#the-machine-sits-in-a-weird-middle-ground">The machine sits in a weird middle ground.</a></li>
+            <li><a href="#if-icewhale-changed-one-thing-this-would-be-it">If IceWhale changed one thing, this would be it.</a></li>
+            <li><a href="#my-honest-take">My honest take</a></li>
         </ul>
     </div>
 
@@ -632,11 +633,12 @@
     <aside class="sidebar" id="sidebar">
         <div class="toc-title">Contents</div>
         <ul class="toc-list" id="desktopToc">
-            <li><a href="#what-zimaos-gets-right">What ZimaOS Gets Right</a></li>
-            <li><a href="#the-problem-with-running-it-here">The Problem with Running It Here</a></li>
-            <li><a href="#what-i-actually-want-to-do-with-this-box">What I Actually Want to Do With This Box</a></li>
-            <li><a href="#where-the-line-is">Where the Line Is</a></li>
-            <li><a href="#the-bottom-line">The Bottom Line</a></li>
+            <li><a href="#the-cpu-story-is-almost-boring">The CPU story is almost boring.</a></li>
+            <li><a href="#the-ram-story-is-a-different-beast">The RAM story is a different beast.</a></li>
+            <li><a href="#this-is-why-the-stock-configuration-annoys-me">This is why the stock configuration annoys me.</a></li>
+            <li><a href="#the-machine-sits-in-a-weird-middle-ground">The machine sits in a weird middle ground.</a></li>
+            <li><a href="#if-icewhale-changed-one-thing-this-would-be-it">If IceWhale changed one thing, this would be it.</a></li>
+            <li><a href="#my-honest-take">My honest take</a></li>
         </ul>
     </aside>
 
@@ -647,37 +649,170 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-inner">
-            <h1>ZimaOS: Good at What It Does, Just Not for This</h1>
-            <p>I have been running ZimaOS for a while now. Not just on the ZimaCube, but on the ZimaBoard 2 and the Zima Blade too. So when I say I know this operating system, I mean it. I have lived with it across multiple devices, and I can tell you exactly where it works and where it does not.</p>
-            <p>And on the ZimaCube Standard, it does not work for what I want to do.</p>
-            <h2 id="what-zimaos-gets-right">What ZimaOS Gets Right</h2>
-            <p>There are plenty of positives. ZimaOS is easy to set up. You flash it to a USB stick, boot from it, and within minutes you are looking at a clean web interface. It handles RAID configurations without making you learn mdadm commands. It sets up SMB shares. It runs Docker containers. For someone who wants a home NAS and does not want to think about the OS underneath, it is hard to beat.</p>
-            <p>I have recommended it to people. If you have a small form factor PC with four cores and you want it to do NAS duty and maybe run a few Docker apps, ZimaOS makes sense. It is low maintenance. It just works for that use case.</p>
-            <h2 id="the-problem-with-running-it-here">The Problem with Running It Here</h2>
-            <p>The ZimaCube Standard has an i3-1215U. Six physical cores, eight logical threads, up to 64GB of RAM, dual PCIe slots, and integrated graphics that can do real work. The Pro steps up to an i3-1235U and adds a 10Gb NIC. This is not a four-core small form factor PC. This hardware is built for virtualization and running multiple operating systems. It is built for using the silicon you paid for.</p>
-            <p>ZimaOS cannot run VMs. It cannot run LXC containers either. It is Docker and NAS features, full stop.</p>
-            <p>I keep thinking about the same thing: what is the point of all these cores if the OS never asks them to do anything meaningful? Under ZimaOS, you are running a file server with a container engine. The CPU sits mostly idle unless you are hitting the drives hard. For a device with this much headroom, that feels like a waste.</p>
-            <h2 id="what-i-actually-want-to-do-with-this-box">What I Actually Want to Do With This Box</h2>
-            <p>I am running Windows Server 2025 on mine. Bare metal, not in a VM, because I want to use this hardware properly. I want to spin up actual virtual machines. I want LXC containers alongside them. I want to remote into a Windows desktop and have the integrated graphics handle the GUI, because it can.</p>
-            <p>Could I do any of that on ZimaOS? No. Not without tearing the whole thing down and installing something else anyway.</p>
-            <p>Proxmox is probably the perfect operating system for the ZimaCube Standard and Pro. It is built for exactly this hardware class. But even if you do not want Proxmox, the point is the same: you need an OS that virtualizes if you want to use this device to its fullest.</p>
-            <h2 id="where-the-line-is">Where the Line Is</h2>
-            <p>My rough rule of thumb, based on using this across multiple devices: if you have four cores or fewer and your only goal is NAS plus some Docker containers, ZimaOS is fine. Better than fine, even. It is the easiest path from "I have a small PC" to "I have a working NAS."</p>
-            <p>But if you have more than four cores? If you have integrated graphics you want to use? If you can see yourself wanting VMs, or Windows Server, or anything beyond file shares and containers? Then ZimaOS is the wrong tool. It is not a performance issue. It is a capability issue. The OS does not do what this hardware is built to do.</p>
-            <h2 id="the-bottom-line">The Bottom Line</h2>
-            <p>ZimaOS is good. On the ZimaBoard 2 and Zima Blade, it is the right choice. On small form factor PCs with modest CPUs, I would still recommend it. But on the ZimaCube Standard and Pro, buying this hardware and leaving it on ZimaOS is like buying a truck and never putting anything in the bed. It works. It drives. But you are not using what you paid for.</p>
-            <p>If you are considering a ZimaCube and you know you want to run VMs, plan your OS migration before you even plug it in. ZimaOS will get you running in ten minutes, and you will outgrow it in ten days.</p>
-            
-            <hr>
-            
-            
+            <h1>The ZimaCube Does Not Need More Cores. It Needs More RAM.</h1>
+
+            <p>A few weeks in, one thing has become painfully obvious.</p>
+
+            <p>I was worrying about the wrong number.</p>
+
+            <p>When people look at a box like the ZimaCube, the first thing they tend to latch onto is CPU. How many cores? How much headroom? Can it run a few VMs without choking? I used to think the same way. In my head, more VMs meant more cores. Eight, twelve, sixteen, whatever I could get.</p>
+
+            <p>Living with this machine has flipped that completely.</p>
+
+            <p>If you have read <a href="../homelab-journal/proxmox-primary-os.html">the Proxmox post</a>, you already know I am not using this thing as a cautious little NAS. It is my main Proxmox box. It runs the heavier part of the homelab. And what I keep seeing, over and over again, is that CPU is not the thing under pressure.</p>
+
+            <p>RAM is.</p>
+
+            <h2 id="the-cpu-story-is-almost-boring">The CPU story is almost boring.</h2>
+
+            <p>That is the surprise.</p>
+
+            <p>Right now I am running ten guests on this box. Three are full VMs. The rest are containers. That includes a Synology VM, Hermes Agent, OPNsense, and the usual small infrastructure bits that quietly keep the house working.</p>
+
+            <img src="../../assets/images/ram-vs-cores/01-proxmox-server-view.jpg" alt="Proxmox server tree showing the ZimaCube host with ten active guests">
+            <p class="image-caption">This is not a toy setup. The ZimaCube is running ten live guests here, which is exactly why the low CPU usage matters.</p>
+
+            <p>The host is still barely touching the CPU.</p>
+
+            <p>On the Proxmox view, I am seeing roughly 3 to 4 per cent CPU usage across the available logical cores. That is with the machine doing real work, not sitting there factory-fresh with one Docker container and a dream.</p>
+
+            <img src="../../assets/images/ram-vs-cores/02-proxmox-node-summary.jpg" alt="Proxmox node summary showing low CPU usage on the ZimaCube host">
+            <p class="image-caption">This is the screenshot that changed my mind. Around 4 per cent CPU usage, ten running guests, and still loads of processor headroom left.</p>
+
+            <p>That changes the whole conversation.</p>
+
+            <p>If the host is cruising along at 4 per cent while running the setup I described in <a href="../homelab-journal/proxmox-primary-os.html">Why Proxmox Is the Only OS That Makes Sense</a>, then the "I need loads of cores for four VMs" mindset starts to fall apart a bit. Most of the time, I do not.</p>
+
+            <p>Most of the time, one or two vCPUs per guest is plenty.</p>
+
+            <p>That has been the actual lived experience.</p>
+
+            <h2 id="the-ram-story-is-a-different-beast">The RAM story is a different beast.</h2>
+
+            <p>This is where the box starts telling the truth.</p>
+
+            <p>Mine has 40GB of RAM now. The stock 8GB stick was never going to last, which I already said in <a href="../hardware/would-i-buy-it.html">Would I Buy the ZimaCube 2 With My Own Money?</a>. Back then, that was more of a pricing argument. Now it is a usage argument.</p>
+
+            <p>I am currently using about 27GB.</p>
+
+            <img src="../../assets/images/ram-vs-cores/03-host-memory-usage.jpg" alt="Proxmox host memory graph showing sustained high RAM usage">
+            <p class="image-caption">This is the real story. The memory graph stays high and steady because the workloads keep living there, even when the CPU is barely awake.</p>
+
+            <p>That is not a weird benchmark run. That is not a stress test. That is just the machine existing as my real homelab host, twenty four seven, doing the jobs I actually want it to do.</p>
+
+            <p>And that is the number that matters.</p>
+
+            <p>CPU headroom looks great on a product page. Memory headroom is what keeps the machine comfortable once you start stacking VMs, LXCs, background services, caches, and all the little bits of infrastructure that never really switch off.</p>
+
+            <p>Virtualisation also has a habit of making RAM feel messier than it looks on paper. Guest reporting is not always perfect. QEMU guest agents do not always behave. Usage drifts. Allocations add up. You can absolutely get away with being light on cores for a while. Being light on memory is where the pain starts.</p>
+
+            <img src="../../assets/images/ram-vs-cores/04-host-cpu-usage.jpg" alt="Proxmox CPU usage graph showing a mostly idle host with only brief spikes">
+            <p class="image-caption">The CPU graph tells the opposite story to the RAM graph. A couple of spikes, sure, but most of the time this host is barely touching the processor.</p>
+
+            <h2 id="this-is-why-the-stock-configuration-annoys-me">This is why the stock configuration annoys me.</h2>
+
+            <p>I do not think 8GB gives this machine its best first impression.</p>
+
+            <p>That might sound harsh, but I think it is true.</p>
+
+            <p>The ZimaCube is not cheap. It is also not absurd for what you get. Six drive bays. Four front NVMe slots. Two more motherboard NVMe slots. Compact chassis. Easy RAM access, which I showed in the <a href="../hardware/disassembly.html">disassembly post</a>. Dual 2.5 gigabit on the Standard. Thunderbolt. PCIe. It is an attractive bit of hardware.</p>
+
+            <p>The problem is that the default memory spec undersells the whole point of it.</p>
+
+            <p>Anyone buying this machine is probably buying it for one of two reasons:</p>
+
+            <ul>
+                <li>they want a serious storage box with room to grow</li>
+                <li>they want a compact homelab server that can do more than NAS duty</li>
+            </ul>
+
+            <p>In both cases, 8GB feels mean.</p>
+
+            <p>If all you want is a cheap box to expand your home lab, there are cheaper ways to do that. Much cheaper. That is part of the argument I already made in <a href="../hardware/would-i-buy-it.html">the original price breakdown</a>. A box like this gets attention because it offers a lot in one chassis. Storage density. Fast storage. Nice I/O. Expandability. It is a premium-ish product.</p>
+
+            <p>Shipping it with 8GB of RAM feels like putting budget tyres on a car you are trying to sell on handling.</p>
+
+            <p>Technically it works.</p>
+
+            <p>It also misses the point.</p>
+
+            <h2 id="the-machine-sits-in-a-weird-middle-ground">The machine sits in a weird middle ground.</h2>
+
+            <p>This is the part I keep coming back to.</p>
+
+            <p>If you leave it on <a href="../homelab-journal/zimaos-review.html">ZimaOS</a>, the stock configuration makes a bit more sense. A few Docker containers, file shares, basic NAS jobs, maybe some light office use. Fine. That is a valid product.</p>
+
+            <p>The hardware is better than that.</p>
+
+            <p>That is the tension.</p>
+
+            <p>I said earlier in the blog that the ZimaCube feels like a proper little server pretending to be a plug and play NAS. I still think that. The BIOS depth, the PCIe options, the storage layout, the way it opens up once you put <a href="../homelab-journal/proxmox-primary-os.html">Proxmox</a> on it. None of that says "please just run a couple of apps and a share."</p>
+
+            <p>It says "give me real jobs."</p>
+
+            <p>Once you do that, RAM becomes the first honest bottleneck.</p>
+
+            <p>That is why I am more forgiving of limited core count than limited memory now. The CPU is loafing around most of the day. The RAM is what gets eaten by the shape of the workload.</p>
+
+            <img src="../../assets/images/ram-vs-cores/05-synology-dsm-vm-summary.jpg" alt="Synology DSM VM summary showing low CPU usage and near-full RAM allocation">
+            <p class="image-caption">Even the heavier guests are not hammering CPU all day. What they do hold onto is memory, and that adds up fast across a Proxmox host.</p>
+
+            <img src="../../assets/images/ram-vs-cores/06-opnsense-vm-summary.jpg" alt="OPNsense VM summary showing modest CPU demand and fully committed memory">
+            <p class="image-caption">Same story with OPNsense. Light CPU demand, but the RAM stays spoken for. That is what turns memory into the real planning number.</p>
+
+            <h2 id="if-icewhale-changed-one-thing-this-would-be-it">If IceWhale changed one thing, this would be it.</h2>
+
+            <p>I would rather see one of two options.</p>
+
+            <ul>
+                <li>a more honest default with 16GB minimum</li>
+                <li>a true barebones version at a lower entry price</li>
+            </ul>
+
+            <p>Sixteen gigs would still not be luxurious. I would still tell most people to aim for 32GB if they plan to virtualise properly. But 16GB at least gets you out of the "I need to upgrade this immediately" territory.</p>
+
+            <p>The barebones route is the other answer.</p>
+
+            <p>Sell the chassis, board, CPU, and expansion story for less money. Let people choose their own RAM and storage from day one. I understand why that is awkward when you want a polished out-of-box ZimaOS experience. I understand why preloading the OS matters.</p>
+
+            <p>I just do not think the current compromise gives the buyer maximum value.</p>
+
+            <p>If you are shipping a machine that invites people to dream a little bigger, the memory spec should match the dream.</p>
+
+            <h2 id="my-honest-take">My honest take</h2>
+
+            <p>The RAM versus core count debate is not even a debate for me anymore.</p>
+
+            <p>RAM wins.</p>
+
+            <p>Not because CPU does not matter at all. It does. If you are running heavy Windows VMs, transcoding workloads, or doing something genuinely compute-hungry, more CPU is still useful. I am not pretending otherwise.</p>
+
+            <p>Yet for the way I am actually using the ZimaCube, CPU is not the wall.</p>
+
+            <p>Memory is.</p>
+
+            <p>The stock 8GB configuration does not match what this machine wants to be. If you are buying a ZimaCube to use the six bays, the NVMe slots, and the virtualisation headroom properly, 8GB is not a serious starting point. In my opinion, 16GB should be the floor and 32GB is where the machine starts to feel right.</p>
+
+            <p>That is the lesson this box has taught me.</p>
+
+            <p>I went in thinking I needed more cores.</p>
+
+            <p>I came out realising I needed more RAM.</p>
+
+
             <div class="post-footer">
-                <em>May 2026</em>
+                <em>Written: June 2026</em>
             </div>
 
             <div class="backlinks">
                 <h3>Related Posts</h3>
-                <p class="backlinks-empty">No direct links from this post.</p>
+                <ul>
+                    <li><a href="../hardware/would-i-buy-it.html">Would I Buy the ZimaCube 2 With My Own Money?</a> — the price argument that started this whole RAM complaint</li>
+                    <li><a href="../homelab-journal/proxmox-primary-os.html">Why Proxmox Is the Only OS That Makes Sense</a> — the actual setup this RAM usage is coming from</li>
+                    <li><a href="../homelab-journal/zimaos-review.html">ZimaOS: Good at What It Does, Just Not for This</a> — why the stock software never felt like the best match for the hardware</li>
+                    <li><a href="../hardware/disassembly.html">Inside the ZimaCube</a> — the easy RAM access and the physical upgrade path</li>
+                    <li><a href="../hardware/six-weeks-later.html">Six Weeks With the ZimaCube 2</a> — where the early signs of this started showing up</li>
+                </ul>
             </div>
         </div>
     </main>
