@@ -26,7 +26,7 @@ The moment it arrived. [Why I chose writing over video →](posts/first-impressi
 
 ### Hardware
 
-Specs, teardowns, and the physical reality of the thing. [The full breakdown: CPU, RAM, storage, networking, and quirks →](posts/hardware/overview.html) [Taking it apart: the fan saga, mystery standoffs, and what's inside →](posts/hardware/disassembly.html) [Six weeks later: what changed, what didn't — BIOS, fan gremlins, and hitting the natural limits →](posts/hardware/six-weeks-later.html) [More RAM, not more cores — why the shipped memory spec misses the point →](posts/hardware/more-ram-not-more-cores.html) [Would I buy it? The honest math on what this machine actually costs →](posts/hardware/would-i-buy-it.html)
+Specs, teardowns, and the physical reality of the thing. [The full breakdown: CPU, RAM, storage, networking, and quirks →](posts/hardware/overview.html) [Taking it apart: the fan saga, mystery standoffs, and what's inside →](posts/hardware/disassembly.html) [Six weeks later: what changed, what didn't — BIOS, fan gremlins, and hitting the natural limits →](posts/hardware/six-weeks-later.html) [More RAM, not more cores — ten guests, about 4% CPU, about 27GB RAM used, and why the shipped 8GB spec misses the point →](posts/hardware/more-ram-not-more-cores.html) [Would I buy it? The honest math on what this machine actually costs →](posts/hardware/would-i-buy-it.html)
 
 ### The Windows Server Project
 
